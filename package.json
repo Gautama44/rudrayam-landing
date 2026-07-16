@@ -1,6 +1,8 @@
 {
   "name": "RUDRAYAM",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Enterprise landing page for Rudrayam Technologies",
+  "author": "Rudrayam Technologies",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,11 +12,15 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^7.13.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
+    "terser": "^5.29.0",
     "vite": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
