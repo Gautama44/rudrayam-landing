@@ -3,39 +3,34 @@ import './Industries.css'
 
 const Industries = () => {
   const industries = [
-    { name: 'Packaging', icon: '📦' },
-    { name: 'FMCG', icon: '🛍️' },
-    { name: 'Chemical', icon: '⚗️' },
-    { name: 'Pharma', icon: '💊' },
-    { name: 'Automotive', icon: '🚗' },
-    { name: 'Medical Devices', icon: '🏥' },
-    { name: 'Textiles', icon: '🧵' },
-    { name: 'Paper & Pulp', icon: '📄' },
-    { name: 'Electronics', icon: '🔌' },
+    { name: 'Packaging', icon: '📦', color: '#3B82F6' },
+    { name: 'FMCG', icon: '🛒', color: '#10B981' },
+    { name: 'Chemical', icon: '⚗️', color: '#F59E0B' },
+    { name: 'Pharma', icon: '💊', color: '#8B5CF6' },
+    { name: 'Automotive', icon: '🚗', color: '#EF4444' },
+    { name: 'Medical', icon: '🏥', color: '#06B6D4' },
+    { name: 'Textiles', icon: '🧥', color: '#EC4899' },
+    { name: 'Paper', icon: '📄', color: '#A16207' },
+    { name: 'Electronics', icon: '🔧', color: '#6366F1' },
   ]
 
   return (
     <section id="industries" className="industries">
       <div className="container">
         <div className="section-header">
-          <h2>Industry Solutions</h2>
-          <p>Tailored for Your Manufacturing Vertical</p>
+          <div className="section-label">Industries</div>
+          <h2>Tailored Solutions</h2>
+          <p>Optimized for your manufacturing vertical</p>
         </div>
 
         <div className="industries-grid">
           {industries.map((industry, idx) => (
-            <div key={idx} className="industry-card">
+            <div key={idx} className="industry-card" style={{ '--card-color': industry.color, '--card-delay': `${idx * 0.05}s` }}>
               <div className="industry-icon">{industry.icon}</div>
               <h3>{industry.name}</h3>
-              <p>Optimized workflows for {industry.name.toLowerCase()} operations</p>
+              <p>Specialized workflows for {industry.name.toLowerCase()}</p>
             </div>
           ))}
-        </div>
-
-        <div className="industries-note">
-          <p>
-            Our platform adapts to the unique requirements of each manufacturing vertical, providing industry-specific features and best practices.
-          </p>
         </div>
       </div>
     </section>

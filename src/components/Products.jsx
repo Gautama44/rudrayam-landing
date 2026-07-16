@@ -5,12 +5,13 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      icon: '📲',
+      icon: '📱',
       name: 'QR Production Platform',
-      description: 'Real-time production tracking and workflow management powered by QR-based intelligence',
+      description: 'Real-time production tracking and workflow management',
+      color: 'primary',
       features: [
         'Real-time production tracking',
-        'QR-based workflow management',
+        'QR-based workflow automation',
         'Inventory visibility',
         'Plant monitoring',
         'Digital records',
@@ -21,7 +22,8 @@ const Products = () => {
       id: 2,
       icon: '🌐',
       name: 'Enterprise Web Platform',
-      description: 'Comprehensive dashboards and multi-client management for enterprise operations',
+      description: 'Comprehensive dashboards and multi-client management',
+      color: 'secondary',
       features: [
         'Enterprise dashboards',
         'Multi-client management',
@@ -33,9 +35,10 @@ const Products = () => {
     },
     {
       id: 3,
-      icon: '📱',
+      icon: '📲',
       name: 'Mobile Operations',
-      description: 'Empower field workers with real-time updates and mobile-first operations management',
+      description: 'Empower field workers with real-time updates',
+      color: 'accent',
       features: [
         'Worker mobility',
         'Real-time updates',
@@ -51,18 +54,24 @@ const Products = () => {
     <section id="products" className="products">
       <div className="container">
         <div className="section-header">
-          <h2>Our Platform Ecosystem</h2>
-          <p>Comprehensive Solutions for Modern Manufacturing</p>
+          <div className="section-label">Platform</div>
+          <h2>Complete Product Ecosystem</h2>
+          <p>Comprehensive solutions for modern manufacturing</p>
         </div>
 
         <div className="products-grid">
-          {products.map((product) => (
-            <div key={product.id} className="product-card">
-              <div className="product-icon">{product.icon}</div>
+          {products.map((product, idx) => (
+            <div key={product.id} className="product-card" style={{ '--card-delay': `${idx * 0.1}s` }}>
+              <div className="product-header">
+                <div className={`product-icon color-${product.color}`}>{product.icon}</div>
+                <div className="product-badge">Enterprise</div>
+              </div>
+              
               <h3>{product.name}</h3>
               <p className="product-description">{product.description}</p>
+              
               <div className="product-features">
-                <h4>Key Capabilities</h4>
+                <div className="features-label">Capabilities</div>
                 <ul>
                   {product.features.map((feature, idx) => (
                     <li key={idx}>
@@ -71,6 +80,10 @@ const Products = () => {
                     </li>
                   ))}
                 </ul>
+              </div>
+              
+              <div className="product-cta">
+                <a href="#contact" className="learn-more">Learn more →</a>
               </div>
             </div>
           ))}
