@@ -19,7 +19,6 @@ const Contact = () => {
     e.preventDefault()
     setStatus('pending')
     
-    // Simulate form submission
     setTimeout(() => {
       setStatus('success')
       setFormData({ name: '', email: '', company: '', message: '' })
@@ -31,15 +30,16 @@ const Contact = () => {
     <section id="contact" className="contact">
       <div className="container">
         <div className="section-header">
-          <h2>Get Started Today</h2>
-          <p>Connect with our enterprise team</p>
+          <div className="section-label">Get Started</div>
+          <h2>Connect With Our Team</h2>
+          <p>Let's transform your manufacturing operations</p>
         </div>
 
         <div className="contact-content">
           <div className="contact-form-wrapper">
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="name">Full Name</label>
+                <label htmlFor="name">Full Name *</label>
                 <input
                   type="text"
                   id="name"
@@ -47,12 +47,12 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your full name"
+                  placeholder="Your name"
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email">Email Address *</label>
                 <input
                   type="email"
                   id="email"
@@ -60,7 +60,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your email"
+                  placeholder="your@company.com"
                 />
               </div>
 
@@ -72,18 +72,19 @@ const Contact = () => {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  placeholder="Enter your company name"
+                  placeholder="Your company"
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Message</label>
+                <label htmlFor="message">Message *</label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows="5"
+                  required
                   placeholder="Tell us about your requirements"
                 ></textarea>
               </div>
@@ -93,7 +94,7 @@ const Contact = () => {
               </button>
 
               {status === 'success' && (
-                <div className="form-success">✓ Message sent successfully. We'll be in touch soon.</div>
+                <div className="form-success">Message sent successfully! We'll get back to you soon.</div>
               )}
               {status === 'pending' && (
                 <div className="form-pending">Sending...</div>
@@ -103,21 +104,36 @@ const Contact = () => {
 
           <div className="contact-info">
             <div className="info-item">
-              <div className="info-icon">📧</div>
+              <div className="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <path d="m22 6-10 7L2 6"/>
+                </svg>
+              </div>
               <h4>Email</h4>
               <p>contact@rudrayam.com</p>
             </div>
 
             <div className="info-item">
-              <div className="info-icon">🌐</div>
-              <h4>Web</h4>
-              <p>www.rudrayam.com</p>
+              <div className="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              <h4>Response Time</h4>
+              <p>24 hours typical</p>
             </div>
 
             <div className="info-item">
-              <div className="info-icon">🏢</div>
-              <h4>Enterprise Solutions</h4>
-              <p>Dedicated support for enterprise customers</p>
+              <div className="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <h4>Headquarters</h4>
+              <p>RudrayamX Private Limited</p>
             </div>
           </div>
         </div>
